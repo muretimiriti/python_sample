@@ -37,6 +37,9 @@
         <td>
           <a href="{% url 'edit' article.id %}">Edit</a>
         </td>
+        <td>
+          <a href="{% url 'delete' article.id %}">Delete</a>
+        </td>
         <!-- 2 -->
       </tr>
       {% endfor %}

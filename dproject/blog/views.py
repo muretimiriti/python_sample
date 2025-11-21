@@ -40,6 +40,18 @@ def edit(request, article_id):
             'form': form,
         }
         return render(request, 'blog/edit.html', params)
+
+def delete(request, article_id):
+    article = Article.objects.get(id=article_id)
+    if request.method == 'POST':
+        article.delete()
+        return redirect('index')
+    else:
+        params = {
+            'article': article,
+        }
+        return render(request, 'blog/delete.html', params)
+
 def index(request):
     articles = Article.objects.all()
     params = {
