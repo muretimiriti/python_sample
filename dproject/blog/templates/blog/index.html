@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <title>
+      Blog App
+    </title>
+  </head>
+  <body>
+    <h1>
+      Blogs
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Title
+          </th>
+          <th>
+            Content
+          </th>
+        </tr>
+      </thead>
+      {% for article in articles %}
+      <!-- 1 -->
+      <tr>
+        <td>
+          {{ article.title }}
+        </td>
+        <!-- 2 -->
+        <td>
+          {{ article.content }}
+        </td>
+        <!-- 2 -->
+      </tr>
+      {% endfor %}
+    </table>
+    <br/>
+  </body>
+</html>
