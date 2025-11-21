@@ -23,6 +23,23 @@ def detail(request, article_id): #-- - 1
     }
     return render(request, 'blog/detail.html', params)
 
+def edit(request, article_id):
+    article = Article.objects.get(id=article_id)
+    if request.method == 'POST':
+        article.title = request.POST['title']
+        article.content = request.POST['content']
+        article.save()
+        return redirect('detail', article_id)  # 1
+    else:
+        form = ArticleForm(initial={
+            'title': article.title,
+            'content': article.content,
+        })
+        params = {
+            'article': article,
+            'form': form,
+        }
+        return render(request, 'blog/edit.html', params)
 def index(request):
     articles = Article.objects.all()
     params = {
