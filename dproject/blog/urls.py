@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views  # --- (1)
+from . import views
 
 urlpatterns = [
-    path("", views.index),  # --- (2)
+    path("", views.index, name="index"),  # edit
+    path("create", views.create, name="create"),  # postscript
 ]
