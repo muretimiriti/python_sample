@@ -31,6 +31,9 @@
         <td>
           {{ article.content }}
         </td>
+        <td>
+          <a href="{% url 'detail' article.id %}">Detail</a>
+        </td>
         <!-- 2 -->
       </tr>
       {% endfor %}

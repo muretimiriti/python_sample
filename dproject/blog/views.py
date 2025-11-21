@@ -16,6 +16,12 @@ def create(request):
         }
         return render(request, 'blog/create.html', params)
 
+def detail(request, article_id): #-- - 1
+    article = Article.objects.get(id=article_id) #-- - 2
+    params = {
+        'article': article,
+    }
+    return render(request, 'blog/detail.html', params)
 
 def index(request):
     articles = Article.objects.all()
